@@ -1,4 +1,4 @@
-from main import bot  # si tu bot está en main.py
+from main import bot
 import os
 
-bot.run(os.getenv("TOKEN"))
+bot.run(os.getenv("TOKEN")) 
