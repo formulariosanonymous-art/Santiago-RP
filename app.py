@@ -1,15 +1,15 @@
 import os
 import asyncio
 from aiohttp import web
-from main import bot  # Asegurate que tu bot está definido en main.py
+from main import bot  # Tu bot está en main.py
 
-# Puerto que Render asigna automáticamente
+# 🔹 Puerto que Render asigna automáticamente
 PORT = int(os.getenv("PORT", 8000))
-TOKEN = os.getenv("TOKEN")  # Tu token de bot en Secrets de Render
+TOKEN = os.getenv("DISCORD_BOT_TOKEN")  # Asegurate que coincida con tu Secret en Render
 
-# 🔹 Mini webserver para mantener el bot vivo
+# 🔹 Mini webserver para mantener el bot activo 24/7
 async def handle(request):
-    return web.Response(text="Bot activo 24/7!")
+    return web.Response(text="Bot activo 24/7! 🚀")
 
 async def run_web():
     app = web.Application()
@@ -23,6 +23,7 @@ async def run_web():
 # 🔹 Ejecutar webserver + bot juntos
 async def main():
     await run_web()
+    await asyncio.sleep(1)  # Espera para que Render detecte el puerto
     await bot.start(TOKEN)
 
 if __name__ == "__main__":
