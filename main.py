@@ -118,6 +118,3 @@ async def apertura(interaction: discord.Interaction,
         "abierto": False,
         "mensaje": await interaction.original_response()
     }
-
-
-bot.run(os.getenv("DISCORD_BOT_TOKEN"))
